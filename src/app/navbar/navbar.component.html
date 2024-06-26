@@ -1,1 +1,7 @@
-<p>navbar works!</p>
+<nav class="d-flex justify-content-around cyanBg p-3">
+    <a matTooltip="Adicionar senha" routerLink="/create-psw" mat-mini-fab><img src="icons/add.svg" alt=""></a>
+    <a matTooltip="Lista de senhas" [routerLink]="['/psw-list']" mat-mini-fab><img src="icons/index-list.svg" alt=""></a>
+    <button matTooltip="Exportar json" mat-mini-fab><img src="icons/export.svg" alt=""></button>
+    <button matTooltip="Importar json" mat-mini-fab><img src="icons/import.svg" alt="" ></button>
+    <a matTooltip="Configurações" mat-mini-fab routerLink="/user-configs" ><img src="/icons/settings.svg" alt=""></a>
+</nav>

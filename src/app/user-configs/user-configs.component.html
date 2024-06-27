@@ -1,1 +1,22 @@
-<p>user-configs works!</p>
+<header>
+    <h1 class="text-white fs-3 text-center">Configurações do usuário</h1>
+</header>
+<section class="d-flex flex-column">
+    <div class="d-flex justify-content-around flex-wrap align-items-center mb-3">
+        <button mat-fab extended><img src="/icons/mail.svg" alt="">Adicionar email padrão</button>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap align-items-center">
+        <button mat-fab extended><img src="/icons/import.svg" alt="">Importar</button>
+        <button mat-fab extended><img src="/icons/export.svg" alt="">Exportar</button>
+    </div>
+    <form class="d-flex flex-column justify-content-center align-items-center mt-3">
+        <mat-form-field>
+            <label>Alterar senha mestre</label>
+            <input type="text" matInput>
+        </mat-form-field>
+        <button mat-flat-button>Alterar</button>
+    </form>
+    <div class="d-flex justify-content-center mt-3">
+        <button mat-fab extended>Deletar todos os dados</button>
+    </div>
+</section>

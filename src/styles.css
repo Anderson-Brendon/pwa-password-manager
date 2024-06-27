@@ -8,7 +8,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 background-color: #004f4f;
 }
 
-.cyanFont,label{
+.cyanFont,label,p{
   color: #00dddd;
 }
 

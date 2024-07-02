@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UserConfigsComponent } from './user-configs.component';
 
 describe('UserConfigsComponent', () => {

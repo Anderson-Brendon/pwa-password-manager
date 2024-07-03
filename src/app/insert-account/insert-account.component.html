@@ -1,28 +1,28 @@
-<header >
-    <p>Adicionar informações sobre senha</p>
+<header>
+    <p>Adicione informações sobre conta</p>
 </header>
-<form autocomplete="off" class="d-flex flex-column">
+<form (ngSubmit)="storeAccount()" [formGroup]="accountForm" autocomplete="off" class="d-flex flex-column">
     <mat-form-field>
-        <label for="pswTitle">Título</label>
-        <input type="text" required matInput>
+        <label>Título</label>
+        <input formControlName="accountTitle" required matInput >
     </mat-form-field>
     <mat-form-field>
         <label>Senha</label>
-        <input type="password" required matInput>
+        <input formControlName="password" required matInput>
     </mat-form-field>
     <mat-form-field>
-        <label >Email utilizado na criação da conta</label>
-        <input type="text"  required matInput>
+        <label>Email utilizado na criação da conta</label>
+        <input formControlName="email" type="text" required matInput>
     </mat-form-field>
     <mat-form-field>
         <label>Descrição(opcional)</label>
-        <input type="text" matInput>
+        <input formControlName="description" type="text" matInput>
     </mat-form-field>
     <mat-form-field>
-        <label>Endereço do app/site para salvar ícone</label>
-        <input type="text" matInput>
+        <label>Url do site/app(opcional)</label>
+        <input placeholder="exemplo: google.com" formControlName="favIconUrl" type="text" matInput>
     </mat-form-field>
     <div class="d-flex justify-content-around">
-        <button class="bg-success" mat-fab extended type="submit">Salvar</button>
+        <button type="submit" class="bg-success" mat-fab extended>Salvar</button>
     </div>
 </form>

@@ -10,7 +10,7 @@ import { wrappedKeyEncryptionCryptoJsStorage } from 'rxdb/plugins/encryption-cry
 
 export class DatabaseRxDbService {
 
-  constructor() {}
+  constructor() { }
 
   databaseInstance!: any
 
@@ -34,7 +34,7 @@ export class DatabaseRxDbService {
         maxlength: 100
       },
       password: {
-        type: 'string'
+        type: 'string',
       },
       title: {
         type: 'string'
@@ -44,9 +44,13 @@ export class DatabaseRxDbService {
       },
       description: {
         type: 'string'
+      },
+      creationDate: {
+        type: 'string'
       }
     },
-    required: ['id','email', 'password', 'title']
+    required: ['id', 'email', 'password', 'title'],
+    encrypted: ['password']
   }//accounts
 
   userSchema = {
@@ -62,13 +66,13 @@ export class DatabaseRxDbService {
         type: 'string'
       }
     },
-    required: ['id','masterPassword']
+    required: ['id', 'masterPassword']
   }
 
   async startDatabaseInstance(psw: string) {
     const encryptedDexieStorage = wrappedKeyEncryptionCryptoJsStorage({
       storage: getRxStorageDexie()
-  });
+    });
     this.databaseInstance = await createRxDatabase({
       name: 'pwa-password-manager',
       storage: encryptedDexieStorage,
@@ -82,7 +86,7 @@ export class DatabaseRxDbService {
       accounts: {
         schema: this.accountSchema
       },
-      user:{
+      user: {
         schema: this.userSchema
       }
     })
@@ -98,7 +102,7 @@ export class DatabaseRxDbService {
   }
 
   searchAccountsByTitle(accountName: string) {
-     this.databaseInstance.accounts.find({
+    this.databaseInstance.accounts.find({
       selector: {
         title: accountName
       }
@@ -113,18 +117,19 @@ export class DatabaseRxDbService {
     }).$;
   }
 
-  async insertAccount(email: string, password: string, title: string, favIcon: string, description: string) {
+  async insertAccount(title: string, email: string, password: string, favIcon: string = '', description: string = '') {
     return this.databaseInstance.accounts.insert({
       id: uuidv4(),
+      title: title,
       email: email,
       password: password,
-      title: title,
       favIcon: favIcon,
-      description: description
+      description: description,
+      creationDate: this.getCurrentDate()
     });
   }
 
-  async insertUser( EmailArg: string) {
+  async insertUser(EmailArg: string) {
     return this.databaseInstance.user.insert({
       id: uuidv4(),
       defaultEmail: EmailArg,
@@ -137,17 +142,24 @@ export class DatabaseRxDbService {
       email: email,
       password: password,
       title: title,
-      favIcon:favIcon,
-      description: description
-    })
+      favIcon: favIcon,
+      description: description,
+      creationDate: this.getCurrentDate()
+    }
+    )
   }
 
   deleteAccount(document: RxDocument) {
     this.document.remove();
   }
 
- isConnectedToDb(): boolean{
-  return isRxDatabase(this.databaseInstance);
- }
+  isConnectedToDb(): boolean {
+    return isRxDatabase(this.databaseInstance);
+  }
 
+  getCurrentDate(): string {
+    let date = new Date();
+    let currentDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    return currentDate;
+  }
 }

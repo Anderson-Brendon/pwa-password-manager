@@ -88,7 +88,7 @@ export class DatabaseRxDbService {
     })
   }
 
-  async getAccountInfo(id: number) {
+  async getAccount(id: number) {
     this.document = await this.databaseInstance.accounts.findOne({
       selector: {
         id: id
@@ -113,7 +113,7 @@ export class DatabaseRxDbService {
     }).$;
   }
 
-  async insertAccountInfo(email: string, password: string, title: string, favIcon: string, description: string) {
+  async insertAccount(email: string, password: string, title: string, favIcon: string, description: string) {
     return this.databaseInstance.accounts.insert({
       id: uuidv4(),
       email: email,
@@ -124,14 +124,14 @@ export class DatabaseRxDbService {
     });
   }
 
-  async insertUserInfo( EmailArg: string) {
+  async insertUser( EmailArg: string) {
     return this.databaseInstance.user.insert({
       id: uuidv4(),
       defaultEmail: EmailArg,
     });
   }
 
-  editAccountInfo(document: RxDocument, email: string, password: string, title: string, favIcon: string, description: string) {
+  editAccount(document: RxDocument, email: string, password: string, title: string, favIcon: string, description: string) {
     this.document = document;
     return this.document.patch({
       email: email,
@@ -142,7 +142,7 @@ export class DatabaseRxDbService {
     })
   }
 
-  deleteAccountInfo(document: RxDocument) {
+  deleteAccount(document: RxDocument) {
     this.document.remove();
   }
 

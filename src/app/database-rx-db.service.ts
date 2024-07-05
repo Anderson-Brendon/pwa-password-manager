@@ -33,6 +33,9 @@ export class DatabaseRxDbService {
         type: 'string',
         maxLength: 100
       },
+      title: {
+        type: 'string'
+      },
       email: {
         type: 'string',
         maxlength: 100
@@ -40,11 +43,8 @@ export class DatabaseRxDbService {
       password: {
         type: 'string',
       },
-      title: {
-        type: 'string'
-      },
       favIcon: {
-        type: 'string'
+        type: 'string',
       },
       description: {
         type: 'string'
@@ -122,13 +122,13 @@ export class DatabaseRxDbService {
     }).$;
   }
 
-  async insertAccount(title: string, email: string, password: string, favIcon: string = '', description: string = '') {
+  async insertAccount(title: string, email: string, password: string, favIcon: string | null = null, description: string = '') {
     return this.databaseInstance.accounts.insert({
       id: uuidv4(),
       title: title,
       email: email,
       password: password,
-      favIcon: favIcon,
+      favIcon: favIcon == null || '' ? '/icons/default-icon.svg'  : `https://${favIcon}/favicon.ico`,
       description: description,
       creationDate: this.getCurrentDate()
     });
@@ -172,7 +172,7 @@ export class DatabaseRxDbService {
 
   getCurrentDate(): string {
     let date = new Date();
-    let currentDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    let currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
     return currentDate;
   }
 }

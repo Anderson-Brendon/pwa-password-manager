@@ -1,6 +1,7 @@
+<p>accounts-listing works!</p>
 @for(account of accounts | async; track account){
     <mat-card appearance="outlined">
-        <div class="d-flex justify-content-evenly p-3">
+        <div class="d-flex justify-content-evenly align-items-center p-3">
             <div class="d-flex flex-column align-items-center">
                 <p>{{account.title}}</p> 
                 <img src="{{account.favIcon}}">

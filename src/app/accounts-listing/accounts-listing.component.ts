@@ -10,15 +10,13 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 
 @Component({
-  selector: 'app-password-listing',
+  selector: 'app-accounts-listing',
   standalone: true,
   imports: [AsyncPipe, MatButtonModule,MatTooltip, MatFabButton, MatCardModule, RouterLink],
-  templateUrl: './password-listing.component.html',
-  styleUrl: './password-listing.component.css'
+  templateUrl: './accounts-listing.component.html',
+  styleUrl: './accounts-listing.component.css'
 })
-export class PasswordListingComponent implements OnInit {
-
-
+export class AccountsListingComponent {
   constructor(private databaseService: DatabaseRxDbService, private snackBar: MatSnackBar){}
 
   ngOnInit(): void {
@@ -65,5 +63,12 @@ export class PasswordListingComponent implements OnInit {
         console.log('copy needs permission')
       }
   }
-
 }
+
+/*
+subscribeToAccountsChanges(): Subscription{
+    const accountsCollection = this.getAccountsCollection();
+    return accountsCollection.find().$.subscribe((accounts: RxDocument[] | null) => {
+      this.displayAccountsList(accounts)
+    })
+  } */

@@ -27,11 +27,11 @@ export class InsertAccountComponent {
   })
 
   storeAccount() {
-    this.databaseService.insertAccount(this.accountForm.value.accountTitle, this.accountForm.value.password,
-      this.accountForm.value.email, this.accountForm.value.favIconUrl, this.accountForm.value.description
+    this.databaseService.insertAccount(this.accountForm.value.accountTitle, 
+      this.accountForm.value.email, this.accountForm.value.password, this.accountForm.value.favIconUrl, this.accountForm.value.description
     ).then(
       ()=>{
-        alert('conta adicionada');
+        console.log('conta adicionada');
         this.resetForm();
       }
     )

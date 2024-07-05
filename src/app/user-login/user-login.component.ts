@@ -29,7 +29,7 @@ export class UserLoginComponent {
   async tryLogin(){
     await this.authService.login(this.masterKey);
     if(this.authService.isLoggedIn()){
-      this.router.navigate(['/psw-list']);
+      this.router.navigate(['/accounts-list']);
     };
   }
 

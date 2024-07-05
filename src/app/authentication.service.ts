@@ -19,6 +19,8 @@ export class AuthenticationService {
     return this.rxdbService.isConnectedToDb();
   }
 
+  changeLoginState(){}
+
   async login(masterPsw: string){
     try {
       await this.rxdbService.startDatabaseInstance(masterPsw);
@@ -28,4 +30,6 @@ export class AuthenticationService {
       return 
     }
   }
+
+  
 }

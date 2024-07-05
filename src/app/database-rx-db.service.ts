@@ -3,6 +3,8 @@ import { createRxDatabase, RxDatabase, RxCollection, RxJsonSchema, RxDocument, t
 import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie';
 import { v4 as uuidv4 } from 'uuid';
 import { wrappedKeyEncryptionCryptoJsStorage } from 'rxdb/plugins/encryption-crypto-js';
+import { RxDBJsonDumpPlugin } from 'rxdb/plugins/json-dump';
+import { addRxPlugin } from 'rxdb';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,9 @@ import { wrappedKeyEncryptionCryptoJsStorage } from 'rxdb/plugins/encryption-cry
 
 export class DatabaseRxDbService {
 
-  constructor() { }
+  constructor() {
+    addRxPlugin(RxDBJsonDumpPlugin);
+  }
 
   databaseInstance!: any
 
@@ -63,10 +67,11 @@ export class DatabaseRxDbService {
         maxLength: 100
       },
       defaultEmail: {
-        type: 'string'
+        type: 'string',
+        default: ''
       }
     },
-    required: ['id', 'masterPassword']
+    required: ['id']
   }
 
   async startDatabaseInstance(psw: string) {
@@ -129,11 +134,19 @@ export class DatabaseRxDbService {
     });
   }
 
-  async insertUser(EmailArg: string) {
-    return this.databaseInstance.user.insert({
-      id: uuidv4(),
-      defaultEmail: EmailArg,
-    });
+  async insertUserEmail(email: string) {
+    let userCollection = this.databaseInstance.user;
+    let userData: any = await userCollection.findOne('1').exec();
+    if (userData) {
+      return userData.patch({
+        defaultEmail: email,
+      });
+    } else {
+      return this.databaseInstance.user.insert({
+        id: '1',
+        defaultEmail: email,
+      })
+    }
   }
 
   editAccount(document: RxDocument, email: string, password: string, title: string, favIcon: string, description: string) {

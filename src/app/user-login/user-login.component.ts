@@ -22,7 +22,7 @@ export class UserLoginComponent {
 
   masterKey = '';
 
-  warningMessage: string = '';
+  warningMessage: string = 'Senha incorreta';
 
   checkIfMasterKeyExists(){}
   

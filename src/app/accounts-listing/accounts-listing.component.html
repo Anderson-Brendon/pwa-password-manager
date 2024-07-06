@@ -1,18 +1,17 @@
-<p>accounts-listing works!</p>
-@for(account of accounts | async; track account){
-    <mat-card appearance="outlined">
-        <div class="d-flex justify-content-evenly align-items-center p-3">
-            <div class="d-flex flex-column align-items-center">
-                <p>{{account.title}}</p> 
-                <img src="{{account.favIcon}}">
-            </div>           
-            <button mat-mini-fab matTooltip="Informações extras"><img src="/icons/info.svg" ></button> 
-            <button mat-mini-fab matTooltip="Copiar senha" (click)="copyPasswordToClipBoard(account.password)"><img src="icons/copy-clipboard.svg"></button>
-            <a mat-mini-fab matTooltip="Editar informações da conta"><img src="icons/edit.svg"></a>        
-            <button mat-mini-fab matTooltip="Deletar informações da conta" (click)="deleteAccount(account)"><img src="icons/delete.svg"></button>
-        </div>     
-    </mat-card>
+<div>
+    <mat-form-field>
+        <img src="/icons/search.svg">
+        <input class="text-center" placeholder="Pesquisar contas" matInput [(ngModel)]="searchInput" (input)="searchAccounts()" type="text">    
+    </mat-form-field>
+</div>
+<section>
+@if(searchInput.length > 0){
+    @for(account of accountsFound; track account.id){\\
+        <app-account-card [account]="account"></app-account-card>
+    }
+}@else{
+    @for(account of accounts$ | async; track account.id){
+        <app-account-card [account]="account"></app-account-card>
+    }
 }
-@if(accounts == null){
-    <p class="text-center">Nenhuma conta adicionada</p>
-}
+</section>

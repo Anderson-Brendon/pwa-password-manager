@@ -1,1 +1,6 @@
-<p>search-bar works!</p>
+<section>
+    <mat-form-field>
+        <input value="" #searchInput (change)="emitSearchValue(searchInput.value)" type="text">
+        <img src="/icons/search.svg">
+    </mat-form-field>
+</section>

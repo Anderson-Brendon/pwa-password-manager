@@ -7,7 +7,7 @@ import { InsertAccountComponent } from './insert-account/insert-account.componen
 import { AccountsListingComponent } from './accounts-listing/accounts-listing.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'/accounts-list', pathMatch:'full'},
+    {path:'', redirectTo:'/user-login', pathMatch:'full'},
     {path:'accounts-list', component: AccountsListingComponent},
     {path:'psw-details/{id}', component:PasswordDetailsComponent},
     {path:'user-configs', component:UserConfigsComponent,canActivate:[authenticationGuard]},

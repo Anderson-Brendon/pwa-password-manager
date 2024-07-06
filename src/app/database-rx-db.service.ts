@@ -107,11 +107,11 @@ export class DatabaseRxDbService {
   }
 
   searchAccountsByTitle(accountName: string) {
-    this.databaseInstance.accounts.find({
+    return this.databaseInstance.accounts.find({
       selector: {
-        title: accountName
+        title: {$regex:`/^${accountName}/i`}
       }
-    }).$
+    })
   }
 
   getAccountById(idParam: number) {

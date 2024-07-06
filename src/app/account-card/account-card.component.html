@@ -1,0 +1,12 @@
+<mat-card appearance="outlined" class="p-3 mb-3">
+        <div class="d-flex justify-content-around align-items-center mb-1">
+            <p>{{account.title}}</p>
+            <!-- <img src="{{account.favIcon}}">  -->
+        </div>
+        <div class="d-flex justify-content-evenly">
+            <button mat-mini-fab matTooltip="Informações extras"><img src="/icons/info.svg" ></button> 
+        <button mat-mini-fab matTooltip="Copiar senha" (click)="copyPasswordToClipBoard(account.password)"><img src="icons/copy-clipboard.svg"></button>
+        <a mat-mini-fab matTooltip="Editar informações da conta"><img src="icons/edit.svg"></a>        
+        <button mat-mini-fab matTooltip="Deletar informações da conta" (click)="deleteAccount(account)"><img src="icons/delete.svg"></button>
+        </div>              
+</mat-card>

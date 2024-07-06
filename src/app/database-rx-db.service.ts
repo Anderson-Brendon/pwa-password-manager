@@ -119,7 +119,7 @@ export class DatabaseRxDbService {
       selector: {
         id: idParam
       }
-    }).$;
+    }).$
   }
 
   async insertAccount(title: string, email: string, password: string, favIcon: string | null = null, description: string = '') {

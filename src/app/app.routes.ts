@@ -8,9 +8,8 @@ import { AccountsListingComponent } from './accounts-listing/accounts-listing.co
 
 export const routes: Routes = [
     {path:'', redirectTo:'/user-login', pathMatch:'full'},
-    {path:'accounts-list', component: AccountsListingComponent},
-    {path:'psw-details/{id}', component:PasswordDetailsComponent},
+    {path:'accounts-list', component: AccountsListingComponent, canActivate:[authenticationGuard]},
     {path:'user-configs', component:UserConfigsComponent,canActivate:[authenticationGuard]},
-    {path:'insert-account', component:InsertAccountComponent},
+    {path:'insert-account', component:InsertAccountComponent, canActivate:[authenticationGuard]},
     {path:'user-login', component:UserLoginComponent}
 ];

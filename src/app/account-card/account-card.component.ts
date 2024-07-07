@@ -4,11 +4,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { RxDocument } from 'rxdb';
 import { DatabaseRxDbService } from '../database-rx-db.service';
 import { MatButtonModule, MatFabButton } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-account-card',
   standalone: true,
-  imports: [MatCardModule,MatButtonModule, MatFabButton],
+  imports: [MatCardModule,MatButtonModule, MatFabButton, MatMenuModule,MatTooltipModule, RouterLink],
   templateUrl: './account-card.component.html',
   styleUrl: './account-card.component.css'
 })
@@ -23,7 +26,7 @@ export class AccountCardComponent {
   async copyPasswordToClipBoard(password: string) {
     try {
       await navigator.clipboard.writeText(password)
-      this.openSnackBar('Senha foi copiada!', 'Fechar');
+      this.openSnackBar('Senha foi copiada!', 'Ok');
       console.log('copy success')
     } catch (error) {
       console.log('copy needs permission')

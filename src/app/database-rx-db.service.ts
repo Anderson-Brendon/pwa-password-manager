@@ -18,7 +18,7 @@ export class DatabaseRxDbService {
 
   databaseInstance!: any
 
-  document!: RxDocument
+  account!: RxDocument
 
   userCollection!: RxCollection
 
@@ -98,12 +98,12 @@ export class DatabaseRxDbService {
   }
 
   async getAccount(id: number) {
-    this.document = await this.databaseInstance.accounts.findOne({
+    this.account = await this.databaseInstance.accounts.findOne({
       selector: {
         id: id
       }
     })
-    return this.document;
+    return this.account;
   }
 
   searchAccountsByTitle(accountName: string) {
@@ -114,12 +114,12 @@ export class DatabaseRxDbService {
     })
   }
 
-  getAccountById(idParam: number) {
-    return this.databaseInstance.accounts.find({
+  getAccountById(idParam:any) {
+    return this.databaseInstance.accounts.findOne({
       selector: {
         id: idParam
       }
-    }).$
+    })
   }
 
   async insertAccount(title: string, email: string, password: string, favIcon: string | null = null, description: string = '') {
@@ -128,7 +128,7 @@ export class DatabaseRxDbService {
       title: title,
       email: email,
       password: password,
-      favIcon: favIcon == null || '' ? '/icons/default-icon.svg'  : `https://${favIcon}/favicon.ico`,
+      favIcon: favIcon,
       description: description,
       creationDate: this.getCurrentDate()
     });
@@ -149,21 +149,22 @@ export class DatabaseRxDbService {
     }
   }
 
-  editAccount(document: RxDocument, email: string, password: string, title: string, favIcon: string, description: string) {
-    this.document = document;
-    return this.document.patch({
-      email: email,
-      password: password,
-      title: title,
-      favIcon: favIcon,
-      description: description,
-      creationDate: this.getCurrentDate()
+  editAccount(account: RxDocument<any>,title: string, email: string, password: string,  favIcon: string, description: string) {
+    this.account = account;
+    return this.account.patch({
+      id: account.id,
+      title: title  ? title : account.title,
+      email: email ? email : account.email,
+      password: password ? password : account.password,
+      favIcon: favIcon == '' ? null : favIcon,
+      description: description == '' ? null : description,
+      creationDate: account.creationDate
     }
     )
   }
 
-  deleteAccount(document: RxDocument) {
-    this.document.remove();
+  deleteAccount(account: RxDocument) {
+    this.account.remove();
   }
 
   isConnectedToDb(): boolean {

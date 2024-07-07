@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatabaseRxDbService } from '../database-rx-db.service';
@@ -10,7 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'app-insert-account',
   standalone: true,
-  imports: [MatInputModule, MatButtonModule, RouterLink, MatDividerModule, MatFormFieldModule, ReactiveFormsModule],
+  imports: [MatInputModule, MatButtonModule, MatDividerModule, MatFormFieldModule, ReactiveFormsModule],
   templateUrl: './insert-account.component.html',
   styleUrl: './insert-account.component.css'
 })
@@ -19,11 +18,11 @@ export class InsertAccountComponent {
   constructor(private databaseService: DatabaseRxDbService) { }
 
   accountForm: FormGroup = new FormGroup({
-    accountTitle: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    favIconUrl: new FormControl(''),
-    description: new FormControl('')
+    accountTitle: new FormControl(null, Validators.required),
+    password: new FormControl(null, Validators.required),
+    email: new FormControl(null, Validators.required),
+    favIconUrl: new FormControl(null),
+    description: new FormControl(null)
   })
 
   storeAccount() {
@@ -38,6 +37,6 @@ export class InsertAccountComponent {
   }
 
   resetForm(){
-    this.accountForm.reset('')
+    this.accountForm.reset('');
   }
 }

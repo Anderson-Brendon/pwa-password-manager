@@ -26,6 +26,7 @@ export class InsertAccountComponent {
   })
 
   storeAccount() {
+    console.log(this.accountForm.status)
     this.databaseService.insertAccount(this.accountForm.value.accountTitle, 
       this.accountForm.value.email, this.accountForm.value.password, this.accountForm.value.favIconUrl, this.accountForm.value.description
     ).then(
@@ -37,6 +38,6 @@ export class InsertAccountComponent {
   }
 
   resetForm(){
-    this.accountForm.reset('');
+    this.accountForm.reset(null);
   }
 }

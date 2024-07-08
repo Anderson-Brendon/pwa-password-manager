@@ -6,7 +6,7 @@
 </div>
 <section>
 @if(searchInput.length > 0){
-    @for(account of accountsFound; track account.id){\\
+    @for(account of accountsFound; track account.id){
         <app-account-card [account]="account"></app-account-card>
     }
 }@else{

@@ -4,15 +4,15 @@
 <form (ngSubmit)="storeAccount()" [formGroup]="accountForm" autocomplete="off" class="d-flex flex-column">
     <mat-form-field>
         <label>Título</label>
-        <input formControlName="accountTitle" required matInput >
+        <input minlength="1" formControlName="accountTitle" required matInput>
     </mat-form-field>
     <mat-form-field>
         <label>Senha</label>
-        <input formControlName="password" required matInput>
+        <input minlength="1" formControlName="password" required matInput>
     </mat-form-field>
     <mat-form-field>
         <label>Email utilizado na criação da conta</label>
-        <input formControlName="email" type="text" required matInput>
+        <input minlength="1" formControlName="email" type="text" required matInput>
     </mat-form-field>
     <mat-form-field>
         <label>Descrição(opcional)</label>

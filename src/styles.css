@@ -1,11 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; background-color: #191c1c;}
+html, body { height: 100%;width: 100%; background-color: #191c1c;}
 
 body { margin: 0;margin-top: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* app-root {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
 
 .cyanBg{background-color: #004f4f;}
 
 .cyanFont,label,p{color: #00dddd;}
 
 .blackBg{color: #191c1c;}
+
+.scale-in-center {
+	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+}

@@ -2,16 +2,17 @@
 
 html, body { height: 100%;width: 100%; background-color: #191c1c;}
 
-body { margin: 0;margin-top: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/* app-root {
+app-root {
     margin: 0px;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-} */
+    overflow-x: hidden;
+}
 
 .cyanBg{background-color: #004f4f;}
 

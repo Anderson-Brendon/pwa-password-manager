@@ -1,5 +1,6 @@
-<router-outlet></router-outlet>
+<div [@routeAnimations]="getRouteAnimationData()">
+    <router-outlet></router-outlet>
+</div>
 @if(this.authService.loginOk){
-    <app-navbar class="scale-in-center"></app-navbar>
+    <app-navbar></app-navbar>
 }
-

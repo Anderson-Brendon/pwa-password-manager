@@ -1,6 +1,9 @@
 div{
-    position: sticky;
+    /* position: sticky; */
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    /* left: 1rem;
+    top: 1rem;
+    z-index: 10;
+    max-width: fit-content; */
 }

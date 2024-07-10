@@ -1,15 +1,17 @@
 <header class="d-flex flex-column justify-content-around align-items-center">
-    <h1 class="fs-3 text-white">Gerenciador de senhas pwa</h1>
-    <p>Totalmente offline e instalável via browser</p>
-    <img class="col-5" src="/images/passwordkey.svg" alt="">
+    <h1 class="fs-3 text-white">Gerenciador de senhas PWA</h1>
+    <img class="col-5 col-md-3 col-lg-2" src="/images/passwordkey.svg" alt="">
 </header>
 <section class="d-flex flex-column align-items-center mt-5">
     <mat-form-field>
-        <label>Insira senha mestre</label>
+        <label class="text-center">Insira ou crie uma chave-mestre</label>
         <input matInput type="text" [(ngModel)]="masterKey">
     </mat-form-field>
     <button mat-fab extended (click)="tryLogin()">Confirmar</button>
-    @if(this.authService.isPasswordWrong){
-        <p class="text-danger">{{warningMessage}}</p>
+    @if(masterKey != '' && masterKey.length < 8){
+        <p class="mt-3">A chave precisa ter no mínimo 8 caracteres</p>
     }
 </section>
+<div class="d-flex justify-content-center mt-3">
+    <button mat-button (click)="openDialogAboutApp()">Sobre o app</button>
+</div>

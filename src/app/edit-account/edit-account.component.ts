@@ -23,7 +23,6 @@ export class EditAccountComponent{
     this.getAccountData();  
   }
   
-
   accountForm!: FormGroup ;
 
   accountId: string | null;
@@ -54,9 +53,10 @@ export class EditAccountComponent{
 
   async storeModifiedAccount() {
     try {
-      await this.databaseService.editAccount(this.account, this.accountForm.value.title,
+      let account = await this.databaseService.editAccount(this.account, this.accountForm.value.title,
       this.accountForm.value.email, this.accountForm.value.password, 
       this.accountForm.value.favIconUrl, this.accountForm.value.description)
+      this.account = account;//revision of document
       this.onSuccessMessage();
     } catch (error) {
       console.log(error)

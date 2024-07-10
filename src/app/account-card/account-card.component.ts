@@ -36,7 +36,7 @@ export class AccountCardComponent {
   }
 
   getFavIcon(websiteUrl: string): string{
-    let url = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteUrl}&size=64`
+    let url = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteUrl}&size=32`
     return url;
   }
 

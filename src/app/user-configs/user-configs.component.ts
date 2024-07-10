@@ -37,9 +37,9 @@ export class UserConfigsComponent{
   readonly dialog = inject(MatDialog);
 
   readonly infos = {exportInfo: {title:'Sobre exportação de backup', 
-  about: "Um arquivo será criado com  todos os dados sobre as senhas que estão criptografadas e poderá ser importado para o app"},
-  importInfo: {title:'Sobre importação de backup', about:'Exporte os dados de um arquivo json criado anteriormente'}, 
-  deleteDatabase:{title: 'Deletar dados', about:'Isso vai deletar todos os dados que só vão pode ser recuperados com um backup, tem certeza?'},
+  about: "Um arquivo json será criado com  todos os dados sobre as senhas que serão descriptogradas, use esse arquivo ao importar."},
+  importInfo: {title:'Sobre importação de backup', about:'Exporte os dados de um arquivo json criado anteriormente.'}, 
+  deleteDatabase:{title: 'Deletar dados', about:'Isso vai deletar todos os dados, que só podem ser recuperados com um backup, tem certeza?'},
   changeEmail:{title:'Alterar email padrão', about: 'Insira um email que será utilizado para preencher o campo do formulário de maneira automática.'}}
 
   openDialogAboutImport(input: any):void{
@@ -57,8 +57,6 @@ export class UserConfigsComponent{
   openDialogAboutDatabaseDeletion():void{
     this.dialog.open(DialogUserConfigsComponent,{
       data:{info: this.infos.deleteDatabase, deleteDatabase: true}
-    }).afterClosed().subscribe(() => {
-      this.authService.logout();
     })
   }
 

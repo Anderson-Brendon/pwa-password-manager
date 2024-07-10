@@ -1,7 +1,7 @@
 <mat-card appearance="outlined" class="p-3 mb-3">
     <div>
-        <p>{{account.title}}</p>
         <img src="{{account.favIcon && isOnline ? getFavIcon(account.favIcon) : '/icons/default-icon.svg'}}" style="border-radius: 1rem;">
+        <p>{{account.title}}</p>
         <button mat-mini-fab [matMenuTriggerFor]="menu"><img src="/icons/select.svg"></button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item matTooltip="Informações extras" [mat-menu-trigger-for]="accountInfo"><img src="/icons/info.svg" ></button>

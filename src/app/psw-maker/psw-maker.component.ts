@@ -5,6 +5,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSliderModule} from '@angular/material/slider';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RandomPasswordCreatorService } from '../random-password-creator.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-psw-maker',
@@ -15,7 +16,7 @@ import { RandomPasswordCreatorService } from '../random-password-creator.service
 })
 export class PswMakerComponent {
 
-  constructor(private passwordCreator: RandomPasswordCreatorService){
+  constructor(private passwordCreator: RandomPasswordCreatorService, private snackBar: MatSnackBar){
     this.creationForm = new FormGroup({
       length: new FormControl(1),
       upperCase: new FormControl(false),
@@ -38,13 +39,10 @@ export class PswMakerComponent {
     )
   }
 
-  displayPassword(){
-    
-  }
-
   copyPasswordResult(){
     try {
       navigator.clipboard.writeText(this.passwordResult!);
+      this.snackBar.open('Senha copiada!', 'Ok');
     } catch (error) {
       console.log(error)
     }

@@ -40,7 +40,7 @@ export class RandomPasswordCreatorService {
 
     if (hasSymbols) {
       for (let i = 0; i < symbols.length; i++) {
-        characters.push(symbols[i])
+        characters.push(symbols[i]);
       }
     }
 

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%;width: 100%; background-color: #191c1c;}
+html, body { padding:0px;height: 100%;width: 100%; background-color: #191c1c;overflow: hidden;/*fix navbar on mobile*/}
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -11,7 +11,7 @@ app-root {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-x: hidden;
+    overflow-x: hidden;/*fix route transition*/
 }
 
 .cyanBg{background-color: #004f4f;}

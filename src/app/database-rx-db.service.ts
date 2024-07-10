@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { createRxDatabase, RxDatabase, RxCollection, RxJsonSchema, RxDocument, toTypedRxJsonSchema, ExtractDocumentTypeFromTypedRxJsonSchema, RXDB_VERSION, RxQuery, isRxDatabase, } from 'rxdb';
 import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie';
 import { v4 as uuidv4 } from 'uuid';
@@ -6,6 +6,7 @@ import { wrappedKeyEncryptionCryptoJsStorage } from 'rxdb/plugins/encryption-cry
 import { RxDBJsonDumpPlugin } from 'rxdb/plugins/json-dump';
 import { addRxPlugin } from 'rxdb';
 import FileSaver from 'file-saver';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -199,7 +200,7 @@ export class DatabaseRxDbService {
   }
 
   exportDatabase(){ 
-    this.databaseInstance.accounts.exportJSON(false).then((jsonData:any) => {
+    this.databaseInstance.accounts.exportJSON().then((jsonData:any) => {
       const file = new File([JSON.stringify(jsonData)], `${'password-backup'}.json`, {type:'application/json'});
       FileSaver.saveAs(file);
     })

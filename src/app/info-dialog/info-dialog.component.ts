@@ -27,5 +27,4 @@ export class InfoDialogComponent {
     this.dialogRef.close()
   }
   
-  email : string | null= null;
 }

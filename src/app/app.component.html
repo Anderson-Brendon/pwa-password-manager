@@ -1,6 +1,4 @@
 <div [@routeAnimations]="getRouteAnimationData()">
     <router-outlet></router-outlet>
 </div>
-@if(this.authService.loginOk){
-    <app-navbar></app-navbar>
-}
+@if(this.authService.loginOk){<app-navbar></app-navbar>}

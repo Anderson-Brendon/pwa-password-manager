@@ -6,6 +6,7 @@ import { MAT_DIALOG_DATA,MatDialogActions,MatDialogClose,MatDialogContent,
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 @Component({
   selector: 'app-dialog-user-configs',
   standalone: true,
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class DialogUserConfigsComponent {
   
-  constructor(public databaseService: DatabaseRxDbService){}
+  constructor(public databaseService: DatabaseRxDbService, public authService: AuthenticationService){}
 
   readonly dialogRef = inject(MatDialogRef<UserConfigsComponent>);
   

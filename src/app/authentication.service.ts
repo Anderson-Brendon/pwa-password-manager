@@ -31,5 +31,8 @@ export class AuthenticationService {
     }
   }
 
-  
+  logout(){
+    this.loginOk = false
+    this.router.navigate(['user-login']);
+  }
 }

@@ -4,9 +4,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormField} from '@angular/material/input';
 import { DatabaseRxDbService } from '../database-rx-db.service';
 import { Router } from '@angular/router';
-import FileSaver from 'file-saver';
 import { AuthenticationService } from '../authentication.service';
-import { OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { inject } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogUserConfigsComponent } from '../dialog-user-configs/dialog-user-configs.component';
 
 @Component({
   selector: 'app-user-configs',
@@ -16,24 +18,62 @@ import { OnInit } from '@angular/core';
   styleUrl: './user-configs.component.css'
 })
 
-export class UserConfigsComponent implements OnInit{
-
-  constructor(private databaseService: DatabaseRxDbService, private router: Router, private authService: AuthenticationService){}
-
-  ngOnInit(): void {
-    this.displayDefaultEmail();
+export class UserConfigsComponent{
+  
+  constructor(public databaseService: DatabaseRxDbService, private router: Router, private authService: AuthenticationService, private snackBar: MatSnackBar){
+    this.accountsCollection = this.databaseService.databaseInstance.accounts;
   }
+
+  userDocument: any;
 
   jsonFile: any;
 
-  currentEmail: string = '';
+  defaultEmail: any;
 
-  exportDatabase(backupName: string){
-    let accounts = this.databaseService.databaseInstance.accounts;
-    accounts.exportJSON(true).then((jsonData:any) => {
-      const file = new File([JSON.stringify(jsonData)], `${backupName}.json`, {type:'application/json'});
-      FileSaver.saveAs(file);
+  accountsCollection: any
+
+  dialogRef : any;
+
+  readonly dialog = inject(MatDialog);
+
+  readonly infos = {exportInfo: {title:'Sobre exportação de backup', 
+  about: "Um arquivo será criado com  todos os dados sobre as senhas que estão criptografadas e poderá ser importado para o app"},
+  importInfo: {title:'Sobre importação de backup', about:'Exporte os dados de um arquivo json criado anteriormente'}, 
+  deleteDatabase:{title: 'Deletar dados', about:'Isso vai deletar todos os dados que só vão pode ser recuperados com um backup, tem certeza?'},
+  changeEmail:{title:'Alterar email padrão', about: 'Insira um email que será utilizado para preencher o campo do formulário de maneira automática.'}}
+
+  openDialogAboutImport(input: any):void{
+    this.dialogRef = this.dialog.open(DialogUserConfigsComponent,{
+      data:{info: this.infos.importInfo, fileInput: input}
     })
+  }
+
+  openDialogAboutExport():void{
+    this.dialogRef = this.dialog.open(DialogUserConfigsComponent,{
+      data:{info: this.infos.exportInfo, exportDatabase: true}
+    })
+  }
+
+  openDialogAboutDatabaseDeletion():void{
+    this.dialog.open(DialogUserConfigsComponent,{
+      data:{info: this.infos.deleteDatabase, deleteDatabase: true}
+    }).afterClosed().subscribe(() => {
+      this.authService.logout();
+    })
+  }
+
+  async openDialogAboutEmail(){
+    this.dialog.open(DialogUserConfigsComponent,{
+      data:{info: this.infos.changeEmail}
+    })
+  }
+
+  openSnackBar(text : string, action: string){
+    this.snackBar.open(text, action);
+  }
+
+  closeDialog(){
+    this.dialogRef.close();
   }
 
   importDatabase(event:any) {
@@ -46,45 +86,15 @@ export class UserConfigsComponent implements OnInit{
     
     reader.onload = ()=>{
       this.databaseService.databaseInstance.accounts.importJSON(JSON.parse(reader.result as string)).then(()=>
-      {'importação concluída'})
+      this.closeDialog(),
+      this.openSnackBar('Importação de dados concluída!', 'Ok')
+      )
     }
 
     if(jsonFile){
       reader.readAsText(jsonFile)
     }
-    
-  };
 
-  changeDefaultEmail(email: string){
-    this.databaseService.insertUserEmail(email).then(() => {
-      this.displayDefaultEmail();
-    })
   }
-
-  async displayDefaultEmail(){//metodo assincrono
-    let userData = await this.databaseService.databaseInstance.user.findOne('1').exec();
-    if(userData == null){this.databaseService.insertUserEmail('')}
-      else{
-        this.currentEmail = userData.defaultEmail
-      }
-  }
-
-  async subscribeToEmailChanges() {//metodo com rxjs
-    let result = await this.databaseService.databaseInstance.user.findOne('1').exec();
-    if (result == null) { this.changeDefaultEmail(''); this.displayDefaultEmail() }
-    else {
-      result = await this.databaseService.databaseInstance.user.findOne('1').exec();
-      result.$.subscribe((userData: any) => {
-        this.currentEmail = userData.defaultEmail;
-      });
-    }
-  }
-
-  deleteDatabase(){
-    this.databaseService.databaseInstance.remove();
-    this.authService.loginOk = false;
-    this.databaseService.databaseInstance.destroy();
-    this.router.navigate(['/user-login']);
-  }//pedir pra digitar texto ===
   
 }

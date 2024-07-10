@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { wrappedKeyEncryptionCryptoJsStorage } from 'rxdb/plugins/encryption-crypto-js';
 import { RxDBJsonDumpPlugin } from 'rxdb/plugins/json-dump';
 import { addRxPlugin } from 'rxdb';
+import FileSaver from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class DatabaseRxDbService {
 
   account!: RxDocument
 
-  userCollection!: RxCollection
+  userData!: any
 
   accountCollection!: RxCollection
 
@@ -84,6 +85,8 @@ export class DatabaseRxDbService {
       password: psw
     });
     await this.createCollections();
+    await this.checkIfUserExists();
+    this.subscribeToEmailChanges(this.userData)
   }
 
   async createCollections() {
@@ -135,18 +138,36 @@ export class DatabaseRxDbService {
   }
 
   async insertUserEmail(email: string) {
-    let userCollection = this.databaseInstance.user;
-    let userData: any = await userCollection.findOne('1').exec();
-    if (userData) {
-      return userData.patch({
-        defaultEmail: email,
-      });
-    } else {
       return this.databaseInstance.user.insert({
         id: '1',
         defaultEmail: email,
       })
+  }
+
+  async patchUserEmail( email: string){
+    this.userData.patch({
+      id: '1',
+      defaultEmail: email,
+    })
+  }
+  
+  async getUserData(){
+    return this.databaseInstance.user.findOne('1').exec();
+  }
+
+  async checkIfUserExists(){
+    let user = await this.getUserData()
+    if(user){
+      this.userData = user
+    }else{
+      this.userData = await this.insertUserEmail('');
     }
+  }
+
+  async subscribeToEmailChanges(userData:any){
+    userData.$.subscribe((user:any) => {
+        this.userData = user
+      })
   }
 
   editAccount(account: RxDocument<any>,title: string, email: string, password: string,  favIcon: string, description: string) {
@@ -176,4 +197,16 @@ export class DatabaseRxDbService {
     let currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
     return currentDate;
   }
+
+  exportDatabase(){ 
+    this.databaseInstance.accounts.exportJSON(false).then((jsonData:any) => {
+      const file = new File([JSON.stringify(jsonData)], `${'password-backup'}.json`, {type:'application/json'});
+      FileSaver.saveAs(file);
+    })
+  }
+
+  deleteDatabase(){
+    this.databaseInstance.remove();
+  }
+  
 }

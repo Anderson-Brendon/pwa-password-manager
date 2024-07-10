@@ -17,12 +17,14 @@ import { RouterLink } from '@angular/router';
 })
 export class AccountCardComponent {
 
-  constructor(private databaseService: DatabaseRxDbService, private snackBar: MatSnackBar){}
+  constructor(private databaseService: DatabaseRxDbService, private snackBar: MatSnackBar){
+    this.isOnline = navigator.onLine
+  }
 
   @Input()
-
   account!: any
-
+  
+  isOnline: boolean;
   async copyPasswordToClipBoard(password: string) {
     try {
       await navigator.clipboard.writeText(password)
@@ -31,6 +33,11 @@ export class AccountCardComponent {
     } catch (error) {
       console.log('copy needs permission')
     }
+  }
+
+  getFavIcon(websiteUrl: string): string{
+    let url = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteUrl}&size=64`
+    return url;
   }
 
   openSnackBar(text: string, action: string) {

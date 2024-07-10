@@ -4,7 +4,7 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DatabaseRxDbService } from './database-rx-db.service';
 import { AuthenticationService } from './authentication.service';
-import { authenticationGuard } from './authentication.guard';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync(), DatabaseRxDbService, AuthenticationService]

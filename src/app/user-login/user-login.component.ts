@@ -20,7 +20,11 @@ import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 export class UserLoginComponent {
   
   constructor(private rxdbService : DatabaseRxDbService, public authService: AuthenticationService,
-  private router: Router){}
+  private router: Router){
+    if(this.authService.isLoggedIn()){
+      this.router.navigate(['/accounts-list']);
+    }
+  }
 
   masterKey = '';
 

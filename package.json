@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
-    "@angular/service-worker": "^18.0.0",
+    "@angular/service-worker": "^18.1.0",
     "@types/uuid": "^10.0.0",
     "file-saver": "^2.0.5",
     "rxdb": "^15.24.0",

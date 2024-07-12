@@ -4,8 +4,8 @@
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/pwa-password-manager/",
+  "start_url": "/pwa-password-manager/",
   "icons": [
     {
       "src": "/pwa-password-manager/icons/pwa-icon.svg",

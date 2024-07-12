@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1720788247210,
+  "timestamp": 1720805350335,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/chunk-VMK46QDD.js",
         "/favicon.png",
         "/index.html",
-        "/main-UNNH5DFF.js",
+        "/main-EPW3HRUY.js",
         "/manifest.webmanifest",
         "/polyfills-6EAL64PA.js",
         "/styles-TSCKW4LT.css"
@@ -24,7 +24,7 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "cacheQueryOptions": {
         "ignoreVary": true
@@ -79,8 +79,8 @@
     "/icons/select.svg": "c58124452cdfa8d6ac57172893539cfd3ecc6eb7",
     "/icons/settings.svg": "b9ca03e00f7ea34d309d3b98db3258997ebd3558",
     "/images/passwordkey.svg": "9dda365bb4674eba9ef6b8d85bcb25d05d316146",
-    "/index.html": "18d69114f761ae2dd1ad79123563385ac140b62e",
-    "/main-UNNH5DFF.js": "0aa62cb36dea57d2720ffa7206202a70c558c0dc",
+    "/index.html": "71e961027285df9355ed1d42a1051c6d990abee0",
+    "/main-EPW3HRUY.js": "d4dcd8cfd0fc57e7bb49983d6c5a2165d99ca4e1",
     "/manifest.webmanifest": "ffd3d433d738dbae9663e90b54ffece5ba16608a",
     "/polyfills-6EAL64PA.js": "d874147a12a6570d9b44e99935e9de8b7f3cabbc",
     "/styles-TSCKW4LT.css": "eec45609153fe76b6aa809c091f6322fee9c415a"

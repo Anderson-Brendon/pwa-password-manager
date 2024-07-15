@@ -1,10 +1,4 @@
 {
-  "configVersion": 1,
-<<<<<<< HEAD
-  "timestamp": 1720806596790,
-=======
-  "timestamp": 1720805350335,
->>>>>>> 7e6265fdfa8209e3afadc9edd6895c5f7de3da57
   "index": "/pwa-password-manager/index.html",
   "assetGroups": [
     {

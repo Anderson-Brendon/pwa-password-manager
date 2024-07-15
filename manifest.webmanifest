@@ -10,14 +10,13 @@
     {
       "src": "/pwa-password-manager/icons/pwa-icon.svg",
       "sizes": "any",
-      "type": "svg+xml",
+      "type": "svg",
       "purpose": "maskable"
     },
     {
       "src": "/pwa-password-manager/icons/pwa-icon.svg",
       "sizes": "any",
-      "type": "svg+xml",
-      "purpose": "any"
+      "type": "svg",
     }
   ]
 }

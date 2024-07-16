@@ -16,7 +16,8 @@
     {
       "src": "/pwa-password-manager/icons/pwa-icon.svg",
       "sizes": "any",
-      "type": "svg"
+      "type": "svg",
+      "purpose": "any"
     }
   ]
 }

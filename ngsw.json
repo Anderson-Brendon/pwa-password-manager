@@ -1,0 +1,107 @@
+{
+  "configVersion": 1,
+  "timestamp": 1721310831910,
+  "index": "https://anderson-brendon.github.io/pwa-password-manager/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://anderson-brendon.github.io/pwa-password-manager/chunk-55MTBJBA.js",
+        "https://anderson-brendon.github.io/pwa-password-manager/chunk-VMK46QDD.js",
+        "https://anderson-brendon.github.io/pwa-password-manager/favicon.png",
+        "https://anderson-brendon.github.io/pwa-password-manager/index.html",
+        "https://anderson-brendon.github.io/pwa-password-manager/main-7OKYMYHI.js",
+        "https://anderson-brendon.github.io/pwa-password-manager/manifest.webmanifest",
+        "https://anderson-brendon.github.io/pwa-password-manager/polyfills-6EAL64PA.js",
+        "https://anderson-brendon.github.io/pwa-password-manager/styles-TSCKW4LT.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/add.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/check.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/copy-clipboard.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/default-icon.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/delete.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/edit.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/export.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/guard.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/home.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/import.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/index-list.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/info.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/mail.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/password.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/pwa-icon.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/right-click.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/search.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/select.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/icons/settings.svg",
+        "https://anderson-brendon.github.io/pwa-password-manager/images/passwordkey.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://anderson-brendon.github.io/pwa-password-manager/chunk-55MTBJBA.js": "e55585ab2091d44b80fbd244c19e65b2750a31f8",
+    "https://anderson-brendon.github.io/pwa-password-manager/chunk-VMK46QDD.js": "93a954c606d42bb103241ce1d9bfe10598d75b7e",
+    "https://anderson-brendon.github.io/pwa-password-manager/favicon.png": "400657e882257e5897f444e4a6f28f6207fbf801",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/add.svg": "54edea758e28201ac9410a08aaf22e6a4983ee92",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/check.svg": "69371cba21855fea193f4bfcfd3b8ac1c26a2ce3",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/copy-clipboard.svg": "6294cb51dbf2b13e15ce08afb49d642ffcb9f3ed",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/default-icon.svg": "8647d74fd28c489705cb0214153f7b466f2cea80",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/delete.svg": "8726d00e4caa20df229a4250301718216328ccb5",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/edit.svg": "f476d4d10bac43b30909c12cad98b7897f07a6e9",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/export.svg": "de09239d561edfba05664df985008cd706d96ee5",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/guard.svg": "39a028337be51563e0e950967dd18b3d3f8280a2",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/home.svg": "50893773d08cff45b3ed27df67d9f6fe74794e91",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/import.svg": "36a49add7154c812fdd803e75b04c86dd3c6bd65",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/index-list.svg": "02f054ff244b54205e2dbd020fa4ac814db64591",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/info.svg": "e626900eec662dc551cce9ae096020dd9ce29151",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/mail.svg": "70cdc3af3ace1d6bda9f325eedd56959f5afaaac",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/password.svg": "0e65339c9a0ee36823cc59d468c5939f864505d7",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/pwa-icon.svg": "501e95d03e8ce577b5c248a5ee09d6f84f68e94d",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/right-click.svg": "6e68f5037c47e818b0aa72452e9272b9744e0c8b",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/search.svg": "837fbecfa05889c62fd35d18497937f0c148ce5c",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/select.svg": "c58124452cdfa8d6ac57172893539cfd3ecc6eb7",
+    "https://anderson-brendon.github.io/pwa-password-manager/icons/settings.svg": "b9ca03e00f7ea34d309d3b98db3258997ebd3558",
+    "https://anderson-brendon.github.io/pwa-password-manager/images/passwordkey.svg": "9dda365bb4674eba9ef6b8d85bcb25d05d316146",
+    "https://anderson-brendon.github.io/pwa-password-manager/index.html": "7a69ecb5e25d6c6e660853367a7b8877b3ae3747",
+    "https://anderson-brendon.github.io/pwa-password-manager/main-7OKYMYHI.js": "b60f8a10c12411effa9fb64d50985f2f8a7d4de5",
+    "https://anderson-brendon.github.io/pwa-password-manager/manifest.webmanifest": "ffd3d433d738dbae9663e90b54ffece5ba16608a",
+    "https://anderson-brendon.github.io/pwa-password-manager/polyfills-6EAL64PA.js": "d874147a12a6570d9b44e99935e9de8b7f3cabbc",
+    "https://anderson-brendon.github.io/pwa-password-manager/styles-TSCKW4LT.css": "eec45609153fe76b6aa809c091f6322fee9c415a"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

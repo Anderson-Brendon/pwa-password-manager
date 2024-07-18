@@ -1,11 +1,8 @@
 {
-<<<<<<< HEAD
   "configVersion": 1,
   "timestamp": 1721310831910,
   "index": "https://anderson-brendon.github.io/pwa-password-manager/index.html",
-=======
   "index": "/pwa-password-manager/index.html",
->>>>>>> 9d2baa8b0f748682641638d3165d0cec48840340
   "assetGroups": [
     {
       "name": "app",

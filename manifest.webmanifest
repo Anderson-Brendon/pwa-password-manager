@@ -4,8 +4,8 @@
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "https://anderson-brendon.github.io/pwa-password-manager/",
+  "start_url": "https://anderson-brendon.github.io/pwa-password-manager/",
   "icons": [
     {
       "src": "/icons/pwa-icon.svg",

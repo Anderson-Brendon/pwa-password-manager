@@ -1,21 +1,20 @@
 {
-"id":"https://anderson-brendon.github.io/pwa-password-manager/",
   "name": "PWA Password Manager",
   "short_name": "PWA Password Manager",
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "standalone",
-  "scope": "/pwa-password-manager/",
-  "start_url": "/pwa-password-manager/",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
-      "src": "/pwa-password-manager/icons/pwa-icon.svg",
+      "src": "/icons/pwa-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
     },
     {
-      "src": "/pwa-password-manager/icons/pwa-icon.svg",
+      "src": "/icons/pwa-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
-  "index": "pwa-password-manager/index.html",
+  "index": "index.html",
   "assetGroups": [
     {
       "name": "app",

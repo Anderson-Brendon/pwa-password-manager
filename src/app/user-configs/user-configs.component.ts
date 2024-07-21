@@ -3,8 +3,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormField} from '@angular/material/input';
 import { DatabaseRxDbService } from '../database-rx-db.service';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
 import {MatDialog} from '@angular/material/dialog';
 import { inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,7 +18,7 @@ import { DialogUserConfigsComponent } from '../dialog-user-configs/dialog-user-c
 
 export class UserConfigsComponent{
   
-  constructor(public databaseService: DatabaseRxDbService, private router: Router, private authService: AuthenticationService, private snackBar: MatSnackBar){
+  constructor(public databaseService: DatabaseRxDbService, private snackBar: MatSnackBar){
     this.accountsCollection = this.databaseService.databaseInstance.accounts;
   }
 
@@ -36,9 +34,9 @@ export class UserConfigsComponent{
 
   readonly dialog = inject(MatDialog);
 
-  readonly infos = {exportInfo: {title:'Sobre exportação de backup', 
-  about: "Um arquivo json será criado com  todos os dados sobre as senhas que serão descriptogradas, use esse arquivo ao importar."},
-  importInfo: {title:'Sobre importação de backup', about:'Exporte os dados de um arquivo json criado anteriormente.'}, 
+  readonly infos = {exportInfo: {title:'Sobre exportação de backup',
+  about: "Um arquivo json será criado com  todos os dados sobre as senhas, use esse arquivo ao importar."},
+  importInfo: {title:'Sobre importação de backup', about:'Importe os dados de um arquivo json criado anteriormente.'},
   deleteDatabase:{title: 'Deletar dados', about:'Isso vai deletar todos os dados, que só podem ser recuperados com um backup, tem certeza?'},
   changeEmail:{title:'Alterar email padrão', about: 'Insira um email que será utilizado para preencher o campo do formulário de maneira automática.'}}
 

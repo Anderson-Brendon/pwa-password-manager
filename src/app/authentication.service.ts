@@ -19,15 +19,17 @@ export class AuthenticationService {
     return this.rxdbService.isConnectedToDb();
   }
 
-  changeLoginState(){}
+  changeLoginState(){
+    this.loginOk = this.rxdbService.isConnectedToDb();
+  }
 
   async login(masterPsw: string){
     try {
       await this.rxdbService.startDatabaseInstance(masterPsw);
-      this.loginOk = this.rxdbService.isConnectedToDb();
+      this.changeLoginState();
     } catch (error) {
       this.isPasswordWrong = true
-      return 
+      console.log(error)
     }
   }
 
@@ -35,4 +37,5 @@ export class AuthenticationService {
     this.loginOk = false
     this.router.navigate(['user-login']);
   }
+  
 }

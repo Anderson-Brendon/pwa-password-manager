@@ -2,10 +2,12 @@
     <h1 class="text-white fs-3 cyanFont text-center">Criador de senhas</h1>
 </header>
     <form [formGroup]="creationForm" (submit)="createPassword()" class="d-flex flex-column justify-content-center">
-        <mat-form-field appearance="fill">
+        <div class="d-flex justify-content-center">
+            <mat-form-field appearance="fill">
                 <label>Resultado</label>
                 <textarea placeholder="Sua senha vai ser exibida aqui" [value]="passwordResult" matInput></textarea>
-        </mat-form-field>
+            </mat-form-field>
+        </div>
         <div class="d-flex flex-column justify-content-around align-items-center">
             <label>Comprimento da senha</label>
             <mat-slider min="1" max="30" step="1" discrete>
@@ -20,8 +22,8 @@
                 <mat-checkbox formControlName="numbers">Números</mat-checkbox>
             </div>
         </div>
-        <div class="d-flex justify-content-around flex-column align-items-center">
-            <button class="mb-3 mt-5" mat-flat-button type="submit">Criar</button>
+        <div class="d-flex justify-content-around mt-3">
+            <button class="mb-3" mat-flat-button type="submit">Criar</button>
             @if(passwordResult){
             <button class="scale-in-center" (click)="copyPasswordResult()" mat-flat-button type="button">Copiar resultado</button>
             }

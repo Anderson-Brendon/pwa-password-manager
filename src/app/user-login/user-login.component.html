@@ -7,11 +7,13 @@
         <label class="text-center">Insira ou crie uma chave-mestre</label>
         <input matInput type="text" [(ngModel)]="masterKey">
     </mat-form-field>
-    <button mat-fab extended (click)="tryLogin()">Confirmar</button>
+    @if(this.masterKey.length >= 8){
+        <button class="scale-in-center" mat-fab extended (click)="tryLogin()">Confirmar</button>
+    }
     @if(masterKey != '' && masterKey.length < 8){
         <p class="mt-3">A chave precisa ter no mínimo 8 caracteres</p>
     }
 </section>
-<div class="d-flex justify-content-center mt-3">
-    <button mat-button (click)="openDialogAboutApp()">Sobre o app</button>
+<div class="d-flex justify-content-around mt-3">
+    <button mat-button (click)="openDialogAboutApp()"><span>Sobre o app</span><img src="icons/info.svg"></button>
 </div>

@@ -1,7 +1,15 @@
-textarea{
+textarea {
     text-align: center;
 }
 
-label{
-    text-align: center !important;
+mat-form-field {
+    width: 100%;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+@media (width >= 576px) {
+    mat-form-field {
+        width: 80%;
+    }
 }

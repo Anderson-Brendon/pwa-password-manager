@@ -57,7 +57,7 @@ export class DatabaseRxDbService {
     },
     required: ['id', 'email', 'password', 'title'],
     encrypted: ['password']
-  }//accounts
+  }
 
   userSchema = {
     version: 0,
@@ -77,6 +77,9 @@ export class DatabaseRxDbService {
   }
 
   async startDatabaseInstance(psw: string) {
+    if(this.databaseInstance){
+      await this.databaseInstance.destroy()
+    }
     const encryptedDexieStorage = wrappedKeyEncryptionCryptoJsStorage({
       storage: getRxStorageDexie()
     });
@@ -190,7 +193,7 @@ export class DatabaseRxDbService {
   }
 
   isConnectedToDb(): boolean {
-    return isRxDatabase(this.databaseInstance);
+    return this.databaseInstance ? this.databaseInstance.hasOwnProperty('accounts') : false;
   }
 
   getCurrentDate(): string {

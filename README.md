@@ -1,6 +1,6 @@
 web-app-pwa para gerenciar senhas
 
--Todas as senhas são criptogradas e salvas no indexedDb(somente no dispositivo do usuário
+-Todas as senhas são criptogradas e salvas no indexedDb(somente no dispositivo do usuário)
 
 -Crie e importe backups
 

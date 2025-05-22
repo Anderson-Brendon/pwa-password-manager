@@ -91,6 +91,9 @@ export class DatabaseRxDbService {
     await this.createCollections();
     await this.checkIfUserExists();
     this.subscribeToEmailChanges(this.userData)
+    if(!this.isDbCreated()){
+      this.changeDbCreationState()
+    }
   }
 
   async createCollections() {
@@ -213,4 +216,11 @@ export class DatabaseRxDbService {
     this.databaseInstance.remove();
   }
   
+  isDbCreated(): boolean{
+    return window.localStorage.getItem('isDbCreated') == 'true';
+  }
+
+  changeDbCreationState(){
+    window.localStorage.setItem('isDbCreated', 'true');
+  }
 }

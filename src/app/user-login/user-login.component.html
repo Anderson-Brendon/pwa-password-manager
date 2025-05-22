@@ -4,7 +4,7 @@
 </header>
 <section class="d-flex flex-column align-items-center mt-5">
     <mat-form-field>
-        <label class="text-center">Insira ou crie uma chave-mestre</label>
+        <label class="text-center">{{dbExists() ? 'Insira chave-mestre' : 'Crie chave-mestre'}}</label>
         <input matInput type="text" [(ngModel)]="masterKey">
     </mat-form-field>
     @if(this.masterKey.length >= 8){

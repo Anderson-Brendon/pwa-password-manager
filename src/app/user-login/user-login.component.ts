@@ -30,8 +30,9 @@ export class UserLoginComponent {
 
   warningMessage: string = 'Senha incorreta';
 
-
-  checkIfMasterKeyExists(){}
+  dbExists(): boolean{
+    return this.rxdbService.isDbCreated();
+  }
   
   readonly dialog = inject(MatDialog);
   

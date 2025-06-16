@@ -5,3 +5,6 @@ form{
 p{
     text-align: center;
 }
+:host{
+  margin-bottom: 1rem;
+}

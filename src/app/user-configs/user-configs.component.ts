@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import {MatFormField} from '@angular/material/input';
 import { DatabaseRxDbService } from '../database-rx-db.service';
 import {MatDialog} from '@angular/material/dialog';
 import { inject } from '@angular/core';
@@ -11,13 +10,13 @@ import { DialogUserConfigsComponent } from '../dialog-user-configs/dialog-user-c
 @Component({
   selector: 'app-user-configs',
   standalone: true,
-  imports: [MatButtonModule,MatInputModule,MatFormField ],
+  imports: [MatButtonModule,MatInputModule ],
   templateUrl: './user-configs.component.html',
   styleUrl: './user-configs.component.css'
 })
 
 export class UserConfigsComponent{
-  
+
   constructor(public databaseService: DatabaseRxDbService, private snackBar: MatSnackBar){
     this.accountsCollection = this.databaseService.databaseInstance.accounts;
   }
@@ -79,7 +78,7 @@ export class UserConfigsComponent{
     const reader = new FileReader()
 
     const jsonFile = event.target.files![0]
-    
+
     reader.onload = ()=>{
       this.databaseService.databaseInstance.accounts.importJSON(JSON.parse(reader.result as string)).then(()=>
       this.closeDialog(),
@@ -92,5 +91,5 @@ export class UserConfigsComponent{
     }
 
   }
-  
+
 }

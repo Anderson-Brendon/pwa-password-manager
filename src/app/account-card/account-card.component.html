@@ -1,8 +1,10 @@
 <mat-card appearance="outlined" class="p-3 mb-3">
     <div>
-        <img src="{{account.favIcon && isOnline ? getFavIcon(account.favIcon) : 'icons/default-icon.svg'}}" style="border-radius: 1rem;">
-        <p>{{account.title}}</p>
-        <button mat-mini-fab [matMenuTriggerFor]="menu"><img src="icons/select.svg"></button>
+      <img src="{{account.favIcon && isOnline ? getFavIcon(account.favIcon) : 'icons/default-icon.svg'}}" style="border-radius: 1rem;">
+        <div class="d-flex flex-column">
+          <p>{{account.title}}</p>
+          <button class="mt-3" mat-mini-fab [matMenuTriggerFor]="menu"><img src="icons/select.svg"></button>
+        </div>
         <mat-menu #menu="matMenu">
             <button mat-menu-item matTooltip="Informações extras" [mat-menu-trigger-for]="accountInfo"><img src="icons/info.svg" ></button>
             <mat-menu #accountInfo="matMenu">
@@ -11,7 +13,7 @@
                 <span mat-menu-item>Criado em:{{account.creationDate}}</span>
             </mat-menu>
             <button mat-menu-item matTooltip="Copiar senha" (click)="copyPasswordToClipBoard(account.password)"><img src="icons/copy-clipboard.svg"></button>
-            <a [routerLink]="['/edit-account',account.id]" mat-menu-item matTooltip="Editar informações da conta"><img src="icons/edit.svg"></a>        
+            <a [routerLink]="['/edit-account',account.id]" mat-menu-item matTooltip="Editar informações da conta"><img src="icons/edit.svg"></a>
             <button mat-menu-item matTooltip="Deletar informações da conta" (click)="deleteAccount(account)"><img src="icons/delete.svg"></button>
         </mat-menu>
     </div>

@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-account-card',
   standalone: true,
-  imports: [MatCardModule,MatButtonModule, MatFabButton, MatMenuModule,MatTooltipModule, RouterLink],
+  imports: [MatCardModule,MatButtonModule, MatMenuModule,MatTooltipModule, RouterLink],
   templateUrl: './account-card.component.html',
   styleUrl: './account-card.component.css'
 })
@@ -23,8 +23,9 @@ export class AccountCardComponent {
 
   @Input()
   account!: any
-  
+
   isOnline: boolean;
+
   async copyPasswordToClipBoard(password: string) {
     try {
       await navigator.clipboard.writeText(password)
@@ -36,7 +37,7 @@ export class AccountCardComponent {
   }
 
   getFavIcon(websiteUrl: string): string{
-    let url = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteUrl}&size=32`
+    let url = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${websiteUrl}&size=64`
     return url;
   }
 

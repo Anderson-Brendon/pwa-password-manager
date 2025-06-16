@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { RxDocument } from 'rxdb';
 import { DatabaseRxDbService } from '../database-rx-db.service';
-import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { MatTooltip } from '@angular/material/tooltip';
-import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +12,7 @@ import { AccountCardComponent } from '../account-card/account-card.component';
 @Component({
   selector: 'app-accounts-listing',
   standalone: true,
-  imports: [AsyncPipe, MatTooltip, MatCardModule, RouterLink,MatFormFieldModule,FormsModule,MatInputModule,AccountCardComponent],
+  imports: [AsyncPipe, MatCardModule, MatFormFieldModule,FormsModule,MatInputModule,AccountCardComponent],
   templateUrl: './accounts-listing.component.html',
   styleUrl: './accounts-listing.component.css'
 })

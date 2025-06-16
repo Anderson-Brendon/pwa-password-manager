@@ -8,17 +8,17 @@ import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
-
+import { MatTooltip } from '@angular/material/tooltip';
 @Component({
   selector: 'app-user-login',
   standalone: true,
-  imports: [MatFormField,MatButtonModule,MatInput,FormsModule],
+  imports: [MatFormField,MatButtonModule,MatInput,FormsModule, MatTooltip],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.css'
 })
 
 export class UserLoginComponent {
-  
+
   constructor(private rxdbService : DatabaseRxDbService, public authService: AuthenticationService,
   private router: Router){
     if(this.authService.isLoggedIn()){
@@ -33,9 +33,9 @@ export class UserLoginComponent {
   dbExists(): boolean{
     return this.rxdbService.isDbCreated();
   }
-  
+
   readonly dialog = inject(MatDialog);
-  
+
   async tryLogin(){
     await this.authService.login(this.masterKey);
     if(this.authService.isLoggedIn()){

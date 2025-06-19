@@ -7,49 +7,50 @@ export class RandomPasswordCreatorService {
 
   constructor() { }
 
-  create(pswLength = 1, hasUppercase: boolean = false, hasNumbers: boolean = false,
-    hasSymbols: boolean = false) {
+  create(pswLength = 5, hasUppercase: boolean = false, hasNumbers: boolean = false,
+    hasSymbols: boolean = false): string {
 
-    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
-      "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    let alphabet :string[] = "abcdefghijklmnopqrstuvwxyz".split("");
 
-    let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    let upperCaseAlphabet :string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-    let symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '()', '_', '-', '+', '=', '{', '[',
-      '}', ']', '|', ":", ";", '"', "'", "<", ">", ".", "?", '/']
+    let numbers :string[] = "0123456789".split("");
 
-    let defaultLength = alphabet.length;
+    let symbols :string[] = "~`!@#$%^&*()_-+={}[]|:;'<>.?/],".split("");
 
-    let characters = []
+    let characters :string[] = [];
 
-    for (let i = 0; i < alphabet.length; i++) {
-      characters.push(alphabet[i])
-    }
+    let passwordResult :any = '';
+
+    characters = characters.concat(alphabet);
 
     if (hasUppercase) {
-      for (let i = 0; i < defaultLength; i++) {
-        characters.push(alphabet[i].toUpperCase())
-      }
+       passwordResult = upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
+       characters = characters.concat(upperCaseAlphabet)
     }
 
     if (hasNumbers) {
-      for (let i = 0; i < numbers.length; i++) {
-        characters.push(numbers[i])
-      }
+      passwordResult = numbers[Math.floor(Math.random() * numbers.length)];
+      characters = characters.concat(numbers);
     }
 
     if (hasSymbols) {
-      for (let i = 0; i < symbols.length; i++) {
-        characters.push(symbols[i]);
-      }
+      passwordResult = symbols[Math.floor(Math.random() * symbols.length)];
+      characters = characters.concat(symbols);
     }
 
-    const numberOfCharacters = characters.length
-
-    let passwordResult = '';
-
     for (let i = 1; i <= pswLength; i++) {
-      passwordResult += characters[Math.floor(numberOfCharacters * Math.random())]
+      passwordResult += characters[Math.floor(characters.length * Math.random())];
+    }
+
+    let passwordArr : string[] = passwordResult.split("");
+
+    passwordResult = ''
+
+    for (let index = 0; index < pswLength; index++) {
+      let position = Math.floor(Math.random() * passwordArr.length);
+      passwordResult += passwordArr[position];
+      passwordArr.splice(position, 1);
     }
 
     return passwordResult;

@@ -18,18 +18,18 @@ export class PswMakerComponent {
 
   constructor(private passwordCreator: RandomPasswordCreatorService, private snackBar: MatSnackBar){
     this.creationForm = new FormGroup({
-      length: new FormControl(1),
+      length: new FormControl(5),
       upperCase: new FormControl(false),
       symbols: new FormControl(false),
       numbers: new FormControl(false)
     })
-    
+
   }
 
   passwordResult : string | null = null
 
-  creationForm : FormGroup ; 
-  
+  creationForm : FormGroup ;
+
   createPassword(){
     this.passwordResult = this.passwordCreator.create(
       this.creationForm.value.length,

@@ -1,12 +1,12 @@
-web-app-pwa para gerenciar senhas
+# Angular-Pokedex
+* Application build with the goal to practice the angular framework and the usage of API's
 
--Todas as senhas são criptogradas e salvas no indexedDb(somente no dispositivo do usuário)
+## App features:
 
--Crie e importe backups
+* The navbar has a list of all the existing pokémon generations, each one being acessible
 
--Pesquise, insira, edite e delete as senhas
+* Pagination of the pokémons list to turn the vizualization easier
 
--Inclui criador de senhas aleatórias
+* Page to check pokémon details with some of his charactheristics, like the evolution chain, if avaiable
 
--Permite instalação usando o browser
-
+* Search bar to find pokémons, you can use a  number to find by id or a text to find by name

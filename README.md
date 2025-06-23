@@ -1,12 +1,32 @@
-# Angular-Pokedex
-* Application build with the goal to practice the angular framework and the usage of API's
+# Pwa-Password-Manager
 
-## App features:
+An angular application to store passwords on the browser
 
-* The navbar has a list of all the existing pokémon generations, each one being acessible
+## Store passwords with criptography on indexedDb
 
-* Pagination of the pokémons list to turn the vizualization easier
+The rxdb library is used to criptography the data and will only show the accounts after unlocking them with a master-key
 
-* Page to check pokémon details with some of his charactheristics, like the evolution chain, if avaiable
+### Search, insert, edit and delete your account
 
-* Search bar to find pokémons, you can use a  number to find by id or a text to find by name
+The classic crud but all offline, nothing happens on a server
+
+### Includes a password creator
+
+Create strong passwords with parameters like upper case, numbers and symbols
+
+### Create backups on a json file
+
+If you want, it's possible to create a backup as json file and then import it to the app later
+
+## Screenshots:
+
+![login.png](https://raw.githubusercontent.com/Anderson-Brendon/pwa-password-manager/refs/heads/master/screenshots/login.png)
+
+![account-listing](https://raw.githubusercontent.com/Anderson-Brendon/pwa-password-manager/refs/heads/master/screenshots/account-listing.png)
+
+![insert-account](https://raw.githubusercontent.com/Anderson-Brendon/pwa-password-manager/refs/heads/master/screenshots/insert-account.png)
+
+![psw-maker.png](https://raw.githubusercontent.com/Anderson-Brendon/pwa-password-manager/refs/heads/master/screenshots/psw-maker.png)
+
+![user-configs.png](https://raw.githubusercontent.com/Anderson-Brendon/pwa-password-manager/refs/heads/master/screenshots/user-configs.png)
+
